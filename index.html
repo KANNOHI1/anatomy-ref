@@ -8,195 +8,214 @@
 <style>
   :root{
     --ink:#26242f; --muted:#6b6675; --line:#d9d4e0;
-    --green:#2e9e6b; --amber:#e0a020; --red:#d24b4b; --blue:#3a6ea5;
+    --green:#2e9e6b; --amber:#e0a020; --red:#d24b4b; --blue:#3a6ea5; --purple:#7a4fb0; --pink:#d24b8b;
     --bg:#faf8fc; --card:#ffffff;
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);
     font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;line-height:1.7}
-  .wrap{max-width:1080px;margin:0 auto;padding:32px 24px 80px}
+  .wrap{max-width:1120px;margin:0 auto;padding:32px 24px 80px}
   h1{font-size:22px;margin:0 0 4px}
-  .sub{color:var(--muted);font-size:13px;margin:0 0 24px}
+  .sub{color:var(--muted);font-size:13px;margin:0 0 20px}
   .warn{background:#fff4f4;border:1px solid #f0c4c4;color:#9a3b3b;
-    border-radius:10px;padding:10px 14px;font-size:12.5px;margin-bottom:28px}
+    border-radius:10px;padding:10px 14px;font-size:12.5px;margin-bottom:26px}
   .panels{display:flex;gap:20px;flex-wrap:wrap}
   .card{background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:16px;flex:1 1 420px;box-shadow:0 1px 3px rgba(40,30,60,.05)}
+    padding:16px 16px 14px;flex:1 1 440px;box-shadow:0 1px 3px rgba(40,30,60,.05)}
   .card h2{font-size:16px;margin:2px 0 2px}
-  .card .tag{font-size:12px;color:var(--muted);margin-bottom:8px}
+  .card .tag{font-size:12px;color:var(--muted);margin-bottom:6px}
   svg{width:100%;height:auto;display:block}
-  .legend{margin-top:10px;font-size:12px;color:var(--muted)}
-  .legend span{display:inline-flex;align-items:center;margin-right:14px}
+  .legend{margin-top:8px;font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 14px}
+  .legend span{display:inline-flex;align-items:center}
   .dot{width:11px;height:11px;border-radius:50%;display:inline-block;margin-right:5px}
-  table{width:100%;border-collapse:collapse;margin-top:28px;font-size:13.5px}
+  .sq{width:11px;height:11px;border-radius:3px;display:inline-block;margin-right:5px}
+  table{width:100%;border-collapse:collapse;margin-top:26px;font-size:13.5px}
   th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}
   th{background:#f2eef8;font-weight:600}
-  .pill{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11.5px;color:#fff}
-  .note{margin-top:26px;background:#f4f1fa;border-radius:12px;padding:16px 18px;font-size:13.5px}
+  .pill{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11.5px;color:#fff;white-space:nowrap}
+  .note{margin-top:24px;background:#f4f1fa;border-radius:12px;padding:16px 18px;font-size:13.5px}
   .note b{color:var(--blue)}
   code{background:#eee;padding:1px 5px;border-radius:4px;font-size:12px}
-  .fz{font-size:12px}
+  .fz{font-size:12px;color:var(--muted)}
+  /* SVG text helpers */
+  .lbl{font-size:12px}
+  .organ{font-size:11px;fill:#8a8194}
+  .callT{font-size:11.5px;font-weight:700}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>子宮の屈曲とG / A / Pスポット ― 当たり判定の地図</h1>
-  <p class="sub">横から見た断面図（左＝腹側／前、右＝背中側／後）。模式図につき正確な縮尺ではない。臨床的理解のための概念図。</p>
+  <p class="sub">横から見た断面図（左＝腹側／前、右＝背中側／後）。模式図につき縮尺は正確でない。概念理解用。</p>
   <div class="warn">個人用リファレンス。検索エンジン除外（<code>noindex</code>）設定済み。</div>
 
   <div class="panels">
 
-    <!-- ============ 前屈 ============ -->
-    <div class="card">
-      <h2>① 前屈（前傾子宮・約75%）</h2>
-      <div class="tag">子宮が腹側（膀胱の上）へ傾く＝奥は素直に開いている</div>
-      <svg viewBox="0 0 520 520" role="img" aria-label="前屈の断面図">
-        <!-- orientation -->
-        <text x="20" y="26" font-size="13" fill="#6b6675">腹側（前）</text>
-        <text x="430" y="26" font-size="13" fill="#6b6675">背中側（後）</text>
-        <line x1="120" y1="20" x2="60" y2="20" stroke="#b8b2c2" stroke-width="1.2" marker-end="url(#ar)"/>
-        <line x1="400" y1="20" x2="460" y2="20" stroke="#b8b2c2" stroke-width="1.2" marker-end="url(#ar)"/>
-        <defs>
-          <marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
-            <path d="M0,0 L6,4 L0,8 z" fill="#b8b2c2"/>
-          </marker>
-          <marker id="arg" markerWidth="11" markerHeight="11" refX="8" refY="5" orient="auto">
-            <path d="M0,0 L8,5 L0,10 z" fill="#2e9e6b"/>
-          </marker>
-          <marker id="arr" markerWidth="11" markerHeight="11" refX="8" refY="5" orient="auto">
-            <path d="M0,0 L8,5 L0,10 z" fill="#d24b4b"/>
-          </marker>
-        </defs>
+  <!-- ===================== 前屈 ===================== -->
+  <div class="card">
+    <h2>① 前屈（前傾子宮・約75%）</h2>
+    <div class="tag">子宮が腹側（膀胱の上）へ傾く → 奥に当たるのは<b>後円蓋</b></div>
+    <svg viewBox="0 0 560 540" role="img" aria-label="前屈の断面図">
+      <defs>
+        <marker id="agreen" markerWidth="12" markerHeight="12" refX="8" refY="5" orient="auto">
+          <path d="M0,0 L9,5 L0,10 z" fill="#2e9e6b"/></marker>
+        <marker id="ared" markerWidth="12" markerHeight="12" refX="8" refY="5" orient="auto">
+          <path d="M0,0 L9,5 L0,10 z" fill="#d24b4b"/></marker>
+        <marker id="agray" markerWidth="9" markerHeight="9" refX="6" refY="4" orient="auto">
+          <path d="M0,0 L6,4 L0,8 z" fill="#b8b2c2"/></marker>
+      </defs>
 
-        <!-- sacrum/spine -->
-        <path d="M470,70 Q500,200 470,360 Q455,430 470,480" fill="none" stroke="#cdbfae" stroke-width="14" stroke-linecap="round"/>
-        <text x="478" y="250" font-size="11" fill="#9a8c78" transform="rotate(90 478 250)">仙骨・背骨</text>
+      <!-- orientation -->
+      <text x="16" y="24" class="organ">← 腹側（前）</text>
+      <text x="470" y="24" class="organ">背中側（後）→</text>
 
-        <!-- pubic bone -->
-        <ellipse cx="92" cy="350" rx="20" ry="30" fill="#e7dccb" stroke="#cdbfae"/>
-        <text x="40" y="400" font-size="11" fill="#9a8c78">恥骨</text>
+      <!-- sacrum -->
+      <path d="M500,80 Q524,180 502,270 Q488,330 500,420" fill="none" stroke="#d8c5ad" stroke-width="15" stroke-linecap="round"/>
+      <text x="512" y="250" class="organ" transform="rotate(90 512 250)">仙骨</text>
+      <!-- rectum -->
+      <path d="M438,150 Q460,300 432,470" fill="none" stroke="#e7d2c2" stroke-width="28" stroke-linecap="round"/>
+      <text x="446" y="450" class="organ">直腸</text>
 
-        <!-- bladder -->
-        <ellipse cx="150" cy="250" rx="58" ry="46" fill="#fff1d6" stroke="#e0c98a"/>
-        <text x="120" y="255" font-size="12" fill="#b08a2a">膀胱</text>
+      <!-- pubic bone -->
+      <ellipse cx="120" cy="372" rx="20" ry="30" fill="#e9decb" stroke="#d3c4ab" transform="rotate(18 120 372)"/>
+      <text x="60" y="408" class="organ">恥骨</text>
+      <!-- bladder -->
+      <path d="M205,300 Q150,318 150,272 Q150,232 198,228 Q236,228 240,268 Q242,292 205,300 Z"
+            fill="#fff0d2" stroke="#e6cd8e"/>
+      <text x="168" y="270" class="organ">膀胱</text>
+      <!-- urethra -->
+      <path d="M168,318 L140,430" stroke="#f3d9b0" stroke-width="7" stroke-linecap="round"/>
 
-        <!-- rectum -->
-        <path d="M400,150 Q420,300 400,470" fill="none" stroke="#e6cfc0" stroke-width="26" stroke-linecap="round"/>
-        <text x="388" y="430" font-size="11" fill="#b89a86">直腸</text>
+      <!-- vagina canal -->
+      <line x1="178" y1="452" x2="322" y2="266" stroke="#ffd7e4" stroke-width="26" stroke-linecap="round"/>
+      <text x="150" y="476" class="organ">膣</text>
 
-        <!-- vaginal canal -->
-        <path d="M118,452 L150,430 L300,272 L268,242 L150,360 L108,418 Z" fill="#ffe0ea" stroke="#f0aac0"/>
-        <text x="150" y="470" font-size="11" fill="#cf6f93">膣</text>
+      <!-- uterus ANTEVERTED: body forward over bladder -->
+      <path d="M322,266 Q300,182 236,168 Q196,164 206,210 Q246,256 308,288 Z"
+            fill="#f7e0f1" stroke="#d98fc4"/>
+      <text x="214" y="186" class="organ">子宮（前へ傾く）</text>
+      <!-- cervix -->
+      <ellipse cx="322" cy="268" rx="15" ry="19" fill="#edc8e3" stroke="#cf8fbf" transform="rotate(-40 322 268)"/>
+      <text x="340" y="300" class="organ">子宮頸部</text>
 
-        <!-- uterus ANTEVERTED: tilts forward over bladder -->
-        <path d="M268,250 Q250,160 200,140 Q160,135 175,185 Q205,235 262,278 Z"
-              fill="#f6dff0" stroke="#d98fc4"/>
-        <text x="178" y="170" font-size="12" fill="#a85a93">子宮（前へ傾く）</text>
+      <!-- spots: axis (178,452)->(322,266); anterior=upper-left side -->
+      <!-- G/CUV shallow anterior -->
+      <circle cx="214" cy="388" r="8.5" fill="#3a6ea5"/>
+      <text x="120" y="356" class="lbl" fill="#2c5580">G/CUV（浅い前壁）</text>
+      <line x1="172" y1="360" x2="206" y2="382" stroke="#2c5580" stroke-width="1"/>
+      <!-- A anterior fornix -->
+      <circle cx="300" cy="284" r="8.5" fill="#7a4fb0"/>
+      <text x="236" y="262" class="lbl" fill="#5e3a8a">A（前円蓋）</text>
+      <!-- P posterior fornix = deep contact in anteverted -->
+      <circle cx="338" cy="282" r="8.5" fill="#e0a020"/>
 
-        <!-- cervix -->
-        <ellipse cx="280" cy="262" rx="17" ry="20" fill="#ecc6e2" stroke="#cf8fbf" transform="rotate(-38 280 262)"/>
-        <text x="300" y="300" font-size="11" fill="#a85a93">子宮頸部</text>
+      <!-- clitoris -->
+      <circle cx="96" cy="420" r="7" fill="#d24b8b"/>
+      <path d="M100,414 Q118,392 126,366" fill="none" stroke="#d24b8b" stroke-width="2" stroke-dasharray="3 3"/>
+      <text x="22" y="450" class="lbl" fill="#b03a72">クリトリス</text>
 
-        <!-- spots -->
-        <!-- G/CUV shallow anterior -->
-        <circle cx="172" cy="352" r="9" fill="#3a6ea5"/>
-        <text x="120" y="330" font-size="11.5" fill="#2c5580">G / CUV（浅い前壁）</text>
-        <line x1="158" y1="335" x2="170" y2="346" stroke="#2c5580" stroke-width="1"/>
-        <!-- A spot anterior fornix -->
-        <circle cx="250" cy="232" r="9" fill="#7a4fb0"/>
-        <text x="232" y="214" font-size="11.5" fill="#5e3a8a">A（前円蓋・腹側の奥）</text>
-        <!-- P / posterior fornix -->
-        <circle cx="300" cy="282" r="9" fill="#e0a020"/>
-        <text x="318" y="262" font-size="11.5" fill="#b8821a">P（後円蓋・ポルチオ）</text>
-        <!-- clitoris -->
-        <circle cx="78" cy="392" r="7" fill="#d24b8b"/>
-        <path d="M82,396 Q120,415 150,440" fill="none" stroke="#d24b8b" stroke-width="2" stroke-dasharray="3 3"/>
-        <text x="20" y="440" font-size="11" fill="#b03a72">クリトリス（内部は脚状）</text>
+      <!-- contact arrow lands at POSTERIOR fornix -->
+      <line x1="186" y1="454" x2="332" y2="286" stroke="#2e9e6b" stroke-width="3" marker-end="url(#agreen)"/>
 
-        <!-- aim arrow: along canal, reaches deep fine -->
-        <line x1="120" y1="448" x2="278" y2="282" stroke="#2e9e6b" stroke-width="3" marker-end="url(#arg)"/>
-        <text x="150" y="430" font-size="11.5" fill="#2e9e6b" transform="rotate(-37 150 430)">奥まで素直に届く</text>
-      </svg>
-      <div class="legend">
-        <span><i class="dot" style="background:#3a6ea5"></i>G/CUV</span>
-        <span><i class="dot" style="background:#7a4fb0"></i>Aスポット</span>
-        <span><i class="dot" style="background:#e0a020"></i>Pスポット</span>
-        <span><i class="dot" style="background:#d24b8b"></i>クリトリス</span>
-      </div>
+      <!-- callout -->
+      <g>
+        <rect x="356" y="300" width="186" height="40" rx="8" fill="#fff" stroke="#e0a020"/>
+        <text x="366" y="316" class="callT" fill="#b8821a">一番奥に当たる＝後円蓋</text>
+        <text x="366" y="332" class="lbl" fill="#9a7016">（ここがポルチオ）</text>
+        <line x1="356" y1="312" x2="344" y2="288" stroke="#e0a020" stroke-width="1.4"/>
+      </g>
+    </svg>
+    <div class="legend">
+      <span><i class="dot" style="background:#3a6ea5"></i>G/CUV</span>
+      <span><i class="dot" style="background:#7a4fb0"></i>A・前円蓋</span>
+      <span><i class="dot" style="background:#e0a020"></i>P・後円蓋（ポルチオ）</span>
+      <span><i class="dot" style="background:#d24b8b"></i>クリトリス</span>
+      <span><i class="sq" style="background:#2e9e6b"></i>挿入が当たる向き</span>
     </div>
+  </div>
 
-    <!-- ============ 後屈 ============ -->
-    <div class="card">
-      <h2>② 後屈（後傾子宮・約20〜25%）</h2>
-      <div class="tag">子宮が背中側（仙骨側）へ傾く＝奥の背中側に子宮が居座る</div>
-      <svg viewBox="0 0 520 520" role="img" aria-label="後屈の断面図">
-        <text x="20" y="26" font-size="13" fill="#6b6675">腹側（前）</text>
-        <text x="430" y="26" font-size="13" fill="#6b6675">背中側（後）</text>
-        <line x1="120" y1="20" x2="60" y2="20" stroke="#b8b2c2" stroke-width="1.2" marker-end="url(#ar)"/>
-        <line x1="400" y1="20" x2="460" y2="20" stroke="#b8b2c2" stroke-width="1.2" marker-end="url(#ar)"/>
+  <!-- ===================== 後屈 ===================== -->
+  <div class="card">
+    <h2>② 後屈（後傾子宮・約20〜25%）</h2>
+    <div class="tag">子宮が背中側へ傾く → ポルチオは<b>前円蓋</b>へ回り込み、後ろの奥は子宮体部が居座る</div>
+    <svg viewBox="0 0 560 540" role="img" aria-label="後屈の断面図">
+      <!-- orientation -->
+      <text x="16" y="24" class="organ">← 腹側（前）</text>
+      <text x="470" y="24" class="organ">背中側（後）→</text>
 
-        <!-- sacrum -->
-        <path d="M470,70 Q500,200 470,360 Q455,430 470,480" fill="none" stroke="#cdbfae" stroke-width="14" stroke-linecap="round"/>
-        <text x="478" y="250" font-size="11" fill="#9a8c78" transform="rotate(90 478 250)">仙骨・背骨</text>
+      <!-- sacrum -->
+      <path d="M500,80 Q524,180 502,270 Q488,330 500,420" fill="none" stroke="#d8c5ad" stroke-width="15" stroke-linecap="round"/>
+      <text x="512" y="250" class="organ" transform="rotate(90 512 250)">仙骨</text>
+      <!-- rectum -->
+      <path d="M438,150 Q460,300 432,470" fill="none" stroke="#e7d2c2" stroke-width="28" stroke-linecap="round"/>
+      <text x="446" y="450" class="organ">直腸</text>
 
-        <!-- pubic bone -->
-        <ellipse cx="92" cy="350" rx="20" ry="30" fill="#e7dccb" stroke="#cdbfae"/>
-        <text x="40" y="400" font-size="11" fill="#9a8c78">恥骨</text>
+      <!-- pubic bone -->
+      <ellipse cx="120" cy="372" rx="20" ry="30" fill="#e9deCB" stroke="#d3c4ab" transform="rotate(18 120 372)"/>
+      <text x="60" y="408" class="organ">恥骨</text>
+      <!-- bladder -->
+      <path d="M205,300 Q150,318 150,272 Q150,232 198,228 Q236,228 240,268 Q242,292 205,300 Z"
+            fill="#fff0d2" stroke="#e6cd8e"/>
+      <text x="168" y="270" class="organ">膀胱</text>
+      <!-- urethra -->
+      <path d="M168,318 L140,430" stroke="#f3d9b0" stroke-width="7" stroke-linecap="round"/>
 
-        <!-- bladder -->
-        <ellipse cx="150" cy="250" rx="58" ry="46" fill="#fff1d6" stroke="#e0c98a"/>
-        <text x="120" y="255" font-size="12" fill="#b08a2a">膀胱</text>
+      <!-- vagina canal -->
+      <line x1="178" y1="452" x2="322" y2="266" stroke="#ffd7e4" stroke-width="26" stroke-linecap="round"/>
+      <text x="150" y="476" class="organ">膣</text>
 
-        <!-- rectum -->
-        <path d="M400,150 Q420,300 400,470" fill="none" stroke="#e6cfc0" stroke-width="26" stroke-linecap="round"/>
-        <text x="388" y="430" font-size="11" fill="#b89a86">直腸</text>
+      <!-- uterus RETROVERTED: body back-down toward sacrum/cul-de-sac -->
+      <path d="M326,260 Q372,292 392,352 Q404,394 360,392 Q312,356 312,286 Z"
+            fill="#f7e0f1" stroke="#d98fc4"/>
+      <text x="350" y="372" class="organ">子宮（後ろへ傾く）</text>
+      <!-- cervix rotated, portio toward anterior -->
+      <ellipse cx="316" cy="272" rx="15" ry="19" fill="#edc8e3" stroke="#cf8fbf" transform="rotate(40 316 272)"/>
+      <text x="250" y="306" class="organ">子宮頸部</text>
 
-        <!-- vaginal canal -->
-        <path d="M118,452 L150,430 L300,272 L268,242 L150,360 L108,418 Z" fill="#ffe0ea" stroke="#f0aac0"/>
-        <text x="150" y="470" font-size="11" fill="#cf6f93">膣</text>
+      <!-- spots -->
+      <!-- G/CUV shallow anterior -->
+      <circle cx="214" cy="388" r="8.5" fill="#3a6ea5"/>
+      <text x="120" y="356" class="lbl" fill="#2c5580">G/CUV（浅い前壁）</text>
+      <line x1="172" y1="360" x2="206" y2="382" stroke="#2c5580" stroke-width="1"/>
+      <!-- A = anterior fornix = portio here (developable, painless) -->
+      <circle cx="300" cy="282" r="9" fill="#7a4fb0"/>
 
-        <!-- uterus RETROVERTED: tilts back toward rectum/sacrum -->
-        <path d="M286,258 Q330,300 360,360 Q372,400 335,392 Q295,360 272,290 Z"
-              fill="#f6dff0" stroke="#d98fc4"/>
-        <text x="320" y="380" font-size="12" fill="#a85a93">子宮（後ろへ傾く）</text>
+      <!-- PAIN zone: posterior cul-de-sac where uterine body sits -->
+      <circle cx="356" cy="338" r="16" fill="#d24b4b" opacity="0.2"/>
+      <circle cx="356" cy="338" r="9" fill="#d24b4b"/>
 
-        <!-- cervix -->
-        <ellipse cx="282" cy="262" rx="17" ry="20" fill="#ecc6e2" stroke="#cf8fbf" transform="rotate(35 282 262)"/>
-        <text x="232" y="300" font-size="11" fill="#a85a93">子宮頸部</text>
+      <!-- clitoris -->
+      <circle cx="96" cy="420" r="7" fill="#d24b8b"/>
+      <path d="M100,414 Q118,392 126,366" fill="none" stroke="#d24b8b" stroke-width="2" stroke-dasharray="3 3"/>
+      <text x="22" y="450" class="lbl" fill="#b03a72">クリトリス</text>
 
-        <!-- spots -->
-        <circle cx="172" cy="352" r="9" fill="#3a6ea5"/>
-        <text x="120" y="330" font-size="11.5" fill="#2c5580">G / CUV（浅い前壁）</text>
-        <line x1="158" y1="335" x2="170" y2="346" stroke="#2c5580" stroke-width="1"/>
-        <circle cx="252" cy="234" r="9" fill="#7a4fb0"/>
-        <text x="222" y="214" font-size="11.5" fill="#5e3a8a">A（前円蓋・腹側の奥）</text>
+      <!-- GREEN arrow steered to anterior fornix (painless portio) -->
+      <line x1="184" y1="452" x2="306" y2="290" stroke="#2e9e6b" stroke-width="3" marker-end="url(#agreen)"/>
+      <!-- RED arrow deep posterior into uterine body = collision -->
+      <line x1="190" y1="458" x2="348" y2="332" stroke="#d24b4b" stroke-width="3" marker-end="url(#ared)"/>
 
-        <!-- PAIN zone posterior fornix where retroverted uterus sits -->
-        <circle cx="316" cy="300" r="15" fill="#d24b4b" opacity="0.22"/>
-        <circle cx="316" cy="300" r="9" fill="#d24b4b"/>
-        <text x="332" y="298" font-size="11.5" fill="#c23434">後円蓋＝子宮に衝突</text>
-        <text x="332" y="314" font-size="11.5" fill="#c23434" font-weight="bold">激痛ゾーン（禁止）</text>
-
-        <!-- clitoris -->
-        <circle cx="78" cy="392" r="7" fill="#d24b8b"/>
-        <path d="M82,396 Q120,415 150,440" fill="none" stroke="#d24b8b" stroke-width="2" stroke-dasharray="3 3"/>
-        <text x="20" y="440" font-size="11" fill="#b03a72">クリトリス</text>
-
-        <!-- RED arrow: deep straight thrust hits retroverted uterus -->
-        <line x1="120" y1="448" x2="308" y2="296" stroke="#d24b4b" stroke-width="3" marker-end="url(#arr)"/>
-        <text x="150" y="432" font-size="11" fill="#d24b4b" transform="rotate(-37 150 432)">深く後方突き＝衝突✕</text>
-
-        <!-- GREEN arrow: steer anterior/belly = safe -->
-        <line x1="122" y1="452" x2="250" y2="250" stroke="#2e9e6b" stroke-width="3" marker-end="url(#arg)"/>
-        <text x="100" y="300" font-size="11.5" fill="#2e9e6b" transform="rotate(-58 100 300)">腹側へ角度＝安全〇</text>
-      </svg>
-      <div class="legend">
-        <span><i class="dot" style="background:#3a6ea5"></i>G/CUV</span>
-        <span><i class="dot" style="background:#7a4fb0"></i>Aスポット</span>
-        <span><i class="dot" style="background:#d24b4b"></i>痛点</span>
-        <span><i class="dot" style="background:#d24b8b"></i>クリトリス</span>
-      </div>
+      <!-- callouts -->
+      <g>
+        <rect x="332" y="232" width="200" height="40" rx="8" fill="#fff" stroke="#7a4fb0"/>
+        <text x="342" y="248" class="callT" fill="#5e3a8a">一番奥に当たる＝前円蓋</text>
+        <text x="342" y="264" class="lbl" fill="#5e3a8a">後屈ではここがポルチオ・痛くない</text>
+        <line x1="332" y1="262" x2="308" y2="284" stroke="#7a4fb0" stroke-width="1.4"/>
+      </g>
+      <g>
+        <rect x="372" y="394" width="170" height="40" rx="8" fill="#fff" stroke="#d24b4b"/>
+        <text x="382" y="410" class="callT" fill="#c23434">後円蓋＝子宮に衝突</text>
+        <text x="382" y="426" class="lbl" fill="#c23434">激痛ゾーン（禁止）</text>
+        <line x1="372" y1="406" x2="362" y2="346" stroke="#d24b4b" stroke-width="1.4"/>
+      </g>
+    </svg>
+    <div class="legend">
+      <span><i class="dot" style="background:#3a6ea5"></i>G/CUV</span>
+      <span><i class="dot" style="background:#7a4fb0"></i>A・前円蓋＝後屈のポルチオ</span>
+      <span><i class="dot" style="background:#d24b4b"></i>痛点（後円蓋）</span>
+      <span><i class="sq" style="background:#2e9e6b"></i>安全な向き</span>
+      <span><i class="sq" style="background:#d24b4b"></i>禁止の向き</span>
     </div>
+  </div>
   </div>
 
   <!-- spot table -->
@@ -215,24 +234,25 @@
       <td>確定</td>
     </tr>
     <tr>
-      <td><span class="pill" style="background:#7a4fb0">A（AFE）</span></td>
+      <td><span class="pill" style="background:#7a4fb0">A（前円蓋）</span></td>
       <td>前円蓋（腹側の奥）</td><td>最深・腹側</td>
-      <td>痛みが出にくい（腹側の奥）。CUVが立ってから二段目で開発</td>
+      <td><b>後屈ではここがポルチオ。</b>痛みが出にくく、彼女が「奥の腹側は平気」と言う場所＝二段目の開発対象</td>
       <td>議論中</td>
     </tr>
     <tr>
-      <td><span class="pill" style="background:#e0a020">P（ポルチオ）</span></td>
+      <td><span class="pill" style="background:#e0a020">P（後円蓋）</span></td>
       <td>後円蓋（背中側の奥）</td><td>最深・背側</td>
-      <td><b style="color:#c23434">禁止。</b>後屈の子宮が居座る＝衝突して激痛</td>
+      <td>前屈では奥の主役だが、<b style="color:#c23434">後屈では子宮体部が居座る＝衝突して激痛。禁止</b></td>
       <td>―</td>
     </tr>
   </table>
 
   <div class="note">
-    <b>この図の読み方（後屈の基本ルール）：</b> 緑の矢印＝<b>腹側へ角度を取れば深さを問わず安全</b>。赤い矢印＝<b>背中側の奥（後円蓋）だけ禁止</b>。
-    前屈は子宮が前に逃げているので奥が素直（後背位も平気）。後屈では奥の背中側に子宮が居座るので、同じ深い後方突きが衝突＝激痛になる。
+    <b>屈曲でポルチオの位置が入れ替わる：</b> 前屈は「奥に当たる＝後円蓋」、後屈は「奥に当たる＝<b>前円蓋</b>」。
+    つまり後屈では子宮頸部（ポルチオ）が腹側の奥へ回り込む。だから「腹側の奥が痛くないが快感まだなし」＝<b>未開発のポルチオ</b>であって、攻めどころそのもの。
+    後ろの奥（後円蓋）は後傾した子宮体部が居座るので、深い後方突き＝衝突＝激痛。緑＝腹側へ角度（安全）／赤＝後方の奥（禁止）。
     <br><br>
-    <b>中イキ仕込みの狙い：</b> 青（G/CUV・浅い前壁）を本命に、紫（A・腹側の奥）を二段目に。どちらも腹側＝痛点ゼロ。
+    <b>中イキ仕込みの狙い：</b> 青（G/CUV・浅い前壁）を本命に、紫（A・前円蓋＝後屈のポルチオ）を二段目に。どちらも腹側＝痛点ゼロ。
     クリ（ピンク）で縁まで上げ、達する窓で青を重ねる＝ブリッジ。<span class="fz">最終更新: 2026-06-24</span>
   </div>
 </div>
